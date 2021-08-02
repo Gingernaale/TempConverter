@@ -9,8 +9,6 @@ import UIKit
 
 class ModeViewController: UIViewController {
     
-    @IBOutlet weak var xLabel: UIButton!
-    @IBOutlet weak var modeLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     
     override func viewDidLoad() {
@@ -18,7 +16,7 @@ class ModeViewController: UIViewController {
         
         title = "Mode Control"
         setLabel()
-        self.modeLabel.layer.cornerRadius = 20
+        
     }
     
     @IBAction func xTapped(_ sender: Any) {
@@ -46,8 +44,10 @@ class ModeViewController: UIViewController {
     func setLabel(){
         var text = "Unable to specify UI style"
         if self.traitCollection.userInterfaceStyle == .dark{
+            
             text = "Dark Mode is On\nGo to settings to\nchange to Light Mode."
         }else{
+            
             text = "Light Mode is On\nGo to settings to\nchange to Dark Mode."
         }
         textLabel.text = text
@@ -59,5 +59,3 @@ extension ModeViewController{
         setLabel()
     }
 }
-
-

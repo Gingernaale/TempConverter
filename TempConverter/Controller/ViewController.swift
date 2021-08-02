@@ -17,15 +17,14 @@ class ViewController: UIViewController {
         didSet{
             tempSlider.maximumValue = 100
             tempSlider.minimumValue = 0
-            tempSlider.value = 21
+            tempSlider.value = 0
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        convertedTempLabel.text = "32 ºF"
+       
+        convertedTempLabel.text = "32 °F"
     }
     
     @IBAction func sliderValueChanged(_ sender: Any) {
@@ -51,7 +50,6 @@ class ViewController: UIViewController {
             convertedTempString = kelvinTempString + " ºK"
         }
         convertedTempLabel.text = convertedTempString
-        
     }
     
     func convertTempFrom(celsius: Int) -> (fahrenheit: Double, kelvin: Double){
@@ -68,6 +66,7 @@ class ViewController: UIViewController {
             let vc = segue.destination as! InfoViewController
             
             vc.tempUpdated = "\(String(describing: convertedTempLabel.text!))"
+            vc.infoUpdated = "My home task was to find temperature"
         }
     }
     
